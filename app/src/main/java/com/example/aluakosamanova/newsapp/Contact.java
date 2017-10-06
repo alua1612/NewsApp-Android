@@ -1,18 +1,23 @@
 package com.example.aluakosamanova.newsapp;
 
+import com.orm.SugarRecord;
+
 import java.util.ArrayList;
 
 /**
  * Created by aluakosamanova on 03.10.17.
  */
 
-public class Contact {
-    private String mName;
-    private boolean mOnline;
+public class Contact extends SugarRecord<Contact> {
+    String mName;
+    boolean mOnline;
 
+    public Contact(){
+
+    }
     public Contact(String name, boolean online) {
-        mName = name;
-        mOnline = online;
+        this.mName = name;
+        this.mOnline = online;
     }
 
     public String getName() {
