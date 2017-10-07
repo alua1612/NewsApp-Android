@@ -8,13 +8,13 @@ import com.orm.SugarRecord;
 
 public class Category extends SugarRecord<Category> {
     private String cName;
-    private String imgSrc;
+    private int imgSrc;
 
     public Category(){
 
     }
 
-    public Category(String name, String img) {
+    public Category(String name, int img) {
         this.cName = name;
         this.imgSrc = img;
     }
@@ -27,11 +27,11 @@ public class Category extends SugarRecord<Category> {
         this.cName=name;
     }
 
-    public String getImgSrc() {
+    public int getImgSrc() {
         return imgSrc;
     }
 
-    public void setImgSrc(String image){
+    public void setImgSrc(int image){
         imgSrc=image;
     }
 
