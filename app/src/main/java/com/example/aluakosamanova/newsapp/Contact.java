@@ -1,42 +1,98 @@
 package com.example.aluakosamanova.newsapp;
 
-import com.orm.SugarRecord;
 
-import java.util.ArrayList;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 
 /**
  * Created by aluakosamanova on 03.10.17.
  */
 
-public class Contact extends SugarRecord<Contact> {
-    String mName;
-    boolean mOnline;
+@Entity(tableName = "contacts")
+public class Contact implements Parcelable{
 
-    public Contact(){
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    private Integer id;
 
+    @ColumnInfo(name = "title")
+    private String title;
+
+    @ColumnInfo(name = "body")
+    private String body;
+
+    @ColumnInfo(name = "date")
+    private String date;
+
+    public Contact() { };
+
+    @Ignore
+    public Contact(String _title, String _body, String _date) {
+        this.title = _title;
+        this.body = _body;
+        this.date = _date;
     }
-    public Contact(String name, boolean online) {
-        this.mName = name;
-        this.mOnline = online;
+
+    @Ignore
+    protected Contact(Parcel in) {
+        title = in.readString();
+        body = in.readString();
+        date = in.readString();
     }
 
-    public String getName() {
-        return mName;
-    }
-
-    public boolean isOnline() {
-        return mOnline;
-    }
-
-    private static int lastContactId = 0;
-
-    public static ArrayList<Contact> createContactsList(int numContacts) {
-        ArrayList<Contact> contacts = new ArrayList<Contact>();
-
-        for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new Contact("Person " + ++lastContactId, i <= numContacts / 2));
+    public static final Creator<Contact> CREATOR = new Creator<Contact>() {
+        @Override
+        public Contact createFromParcel(Parcel in) {
+            return new Contact(in);
         }
 
-        return contacts;
+        @Override
+        public Contact[] newArray(int size) {
+            return new Contact[size];
+        }
+    };
+
+    public void setId(Integer id){this.id = id;}
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public String getDate() {
+        return date;
+    }
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(title);
+        parcel.writeString(body);
+        parcel.writeString(date);
     }
 }

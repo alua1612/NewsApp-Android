@@ -42,16 +42,16 @@ public class FragmentTwo extends Fragment {
 //        recyclerview.setItemAnimator(new DefaultItemAnimator());
         recyclerview.setAdapter(categoriesadapter);
 
-        Category c = new Category("Fashion", R.drawable.fash);
+        Category c = new Category("Fashion", R.drawable.fashion);
         categoryList.add(c);
 
-        c=new Category("Technology", R.drawable.tech);
+        c=new Category("Technology", R.drawable.technology);
         categoryList.add(c);
 
-        c=new Category("World news", R.drawable.world);
+        c=new Category("World news", R.drawable.world_news);
         categoryList.add(c);
 
-        c=new Category("Agriculture", R.drawable.agri);
+        c=new Category("Agriculture", R.drawable.agriculture);
         categoryList.add(c);
 
         c=new Category("Sport", R.drawable.sportnews);

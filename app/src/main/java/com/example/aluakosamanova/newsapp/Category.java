@@ -1,12 +1,10 @@
 package com.example.aluakosamanova.newsapp;
 
-import com.orm.SugarRecord;
-
 /**
  * Created by aluakosamanova on 03.10.17.
  */
 
-public class Category extends SugarRecord<Category> {
+public class Category {
     private String cName;
     private int imgSrc;
 

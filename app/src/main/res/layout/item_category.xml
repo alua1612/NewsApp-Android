@@ -22,11 +22,11 @@
             <TextView
                 android:id="@+id/category_name"
                 android:layout_width="180dp"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
-                android:textColor="#4c4c4c"
+                android:textColor="#000"
                 android:textSize="15dp" />
 
         </RelativeLayout>
