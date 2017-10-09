@@ -25,6 +25,7 @@ public class ContactsAdapter extends
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView nameTextView;
+        public TextView bodyView;
         public TextView dateView;
         int position;
 
@@ -69,6 +70,8 @@ public class ContactsAdapter extends
         textView.setText(contact.getTitle());
         TextView txtView = viewHolder.dateView;
         txtView.setText(contact.getDate());
+//        TextView texttView = viewHolder.bodyView;
+//        texttView.setText(contact.getBody());
     }
 
     @Override

@@ -37,9 +37,9 @@ public class ContactByIdActivity  extends AppCompatActivity {
         i = getIntent();
         curContact = (Contact) i.getParcelableExtra("news-item");
 
-        TextView newsTitle = (TextView)findViewById(R.id.contact_name);
+        TextView newsTitle = (TextView)findViewById(R.id.title);
         TextView newsBody = (TextView)findViewById(R.id.body);
-        TextView newsDate = (TextView)findViewById(R.id.contact_date);
+        TextView newsDate = (TextView)findViewById(R.id.date);
         newsTitle.setText(curContact.getTitle());
         newsBody.setText(curContact.getBody());
         newsDate.setText(curContact.getDate());

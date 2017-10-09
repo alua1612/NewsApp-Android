@@ -25,7 +25,8 @@ import java.util.List;
 
 import static com.example.aluakosamanova.newsapp.R.id.fab_news;
 
-public class FragmentOne extends Fragment {
+public class FragmentOne extends Fragment implements View.OnClickListener{
+
     private RecyclerView recyclerview;
     private ContactsAdapter contactsAdapter;
     private List<Contact> contactList;
@@ -33,8 +34,9 @@ public class FragmentOne extends Fragment {
     private boolean add = false;
     AppDatabase database;
     View view;
+    View createView;
     public FragmentOne() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -49,18 +51,19 @@ public class FragmentOne extends Fragment {
         view = inflater.inflate(R.layout.fragment_one, container, false);
         recyclerview = (RecyclerView) view.findViewById(R.id.rvContacts);
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(fab_news);
-        fab.setOnClickListener((View.OnClickListener) this);
+        fab.setOnClickListener(this);
 
         alertDialog = new AlertDialog.Builder(getActivity());
-        alertDialog.setView(inflater.inflate(R.layout.news_create, null));
+        createView = inflater.inflate(R.layout.news_create, null);
+        alertDialog.setView(createView);
         alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(add) {
                     add = false;
-                    EditText title = (EditText) view.findViewById(R.id.cr_title);
-                    EditText body = (EditText) view.findViewById(R.id.cr_body);
-                    EditText date = (EditText) view.findViewById(R.id.cr_date);
+                    EditText title = (EditText) createView.findViewById(R.id.cr_title);
+                    EditText body = (EditText) createView.findViewById(R.id.cr_body);
+                    EditText date = (EditText) createView.findViewById(R.id.cr_date);
                     Contact crNews = new Contact(title.getText().toString(), body.getText().toString(), date.getText().toString());
                     contactsAdapter.insert(contactList.size(), crNews);
                     AddNews(crNews);
@@ -98,7 +101,7 @@ public class FragmentOne extends Fragment {
         new InsertAsync().execute(_news);
     }
 
-//    @Override
+    @Override
     public void onClick(View view) {
         switch (view.getId()){
             case fab_news:

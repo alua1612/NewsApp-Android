@@ -19,7 +19,9 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:minHeight="?attr/actionBarSize"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
@@ -73,7 +75,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:layout_marginTop="16dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+                       />
 
                     <TextView
                         android:id="@+id/date"
@@ -82,7 +84,6 @@
                         android:layout_margin="16dp"
                         android:text="Date"
                         android:textSize="22dp"
-                        android:drawableLeft="@android:drawable/ic_menu_my_calendar"
                        />
 
                     <TextView
@@ -91,7 +92,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
                         android:text="Body"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+                        />
 
                 </LinearLayout>
 
